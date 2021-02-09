@@ -1,15 +1,18 @@
-import sys
+def isPrime(n):
+    num = [1] * n
+    for i in range(2, int(n**0.5)+1):
+        if num[i] == 1:
+            for j in range(i+i,n,i):
+                num[j] = 0
+    return num
 
-def isPrime(x):
-    if x == 1:
-        return False
-    for i in range(2, int(x**0.5)+1):
-        if x%i == 0:
-            return False
-    return True
+num = isPrime(1000000)
 
-a = int(sys.stdin.readline())
-
-for i in range(1,a):
-    if isPrime(i):
-        print(i)
+while True:
+    n = int(input())
+    if n==0:
+        break
+    for i in range(3,n//2+1):
+        if num[i] and num[n-i]:
+            print("{} = {} + {}".format(n, i, n-i))
+            break
