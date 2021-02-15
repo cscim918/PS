@@ -1,0 +1,5 @@
+N, M = map(int, input().split())
+s1 = list(map(int, input().split()))
+s2 = list(map(int, input().split()))
+s3 = ' '.join(map(str, sorted(s1+s2)))
+print(s3)
